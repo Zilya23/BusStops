@@ -10,7 +10,7 @@ namespace BusStops
     {
         static public Dictionary<string, HashSet<string>> Buses;
         static public Dictionary<string, HashSet<string>> Stops;
-        static public HashSet<string> Stop;
+        static public HashSet<string> Stop = new HashSet<string>();
         static void Main(string[] args)
         {
             Buses = new Dictionary<string, HashSet<string>>();
@@ -23,7 +23,7 @@ namespace BusStops
 
             NEW_HASH(Stop_List);
             NEW_BUS(5, "34", Stop);
-            Print_Bus(Buses);
+            Print_Bus(Buses, "34");
         }
 
 
@@ -40,12 +40,18 @@ namespace BusStops
             });
         }
 
-        public static void Print_Bus(Dictionary<string, HashSet<string>> Bus)
+        public static void Print_Bus(Dictionary<string, HashSet<string>> Bus, string key)
         {
+            //Console.WriteLine($"Номер автобуса: {Bus.ContainsKey(key)}");
 
             foreach (var i in Bus)
             {
-                Console.WriteLine($"key: {i.Key}  value: {i.Value}");
+                Console.WriteLine($"Номер автобуса: {i.Key}");
+                Console.WriteLine("Остановки: ");
+                foreach (var a in i.Value)
+                {
+                    Console.WriteLine(a);
+                }
             }
         }
     }

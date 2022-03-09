@@ -10,8 +10,6 @@ namespace BusStops
     {
         static public Dictionary<string, HashSet<string>> Buses;
         static public Dictionary<string, HashSet<string>> Stops;
-        //static public HashSet<string> Stop = new HashSet<string>();
-        //static public HashSet<string> Bus = new HashSet<string>();
         static public List<string> Stop_List;
         static public void Main(string[] args)
         {
@@ -21,22 +19,21 @@ namespace BusStops
             Stop_List = new List<string>() { "Остановка1", "Остановка2", "Остановка3", "Остановка4" };
    
             NEW_BUS(5, "34");
-            Print_Bus(Buses, "34");
+            //Print_Bus(Buses, "34");
             BUSES_FOR_STOP(Stops, "Остановка1");
 
             Stop_List = new List<string>() {"Остановка2", "Остановка3", "Остановка4", "Остановка5" };
 
             NEW_BUS(5, "45");
-            Print_Bus(Buses, "45");
+            //Print_Bus(Buses, "45");
 
-            //ALL_BUSES(Buses);
+            ALL_BUSES(Buses);
 
             BUSES_FOR_STOP(Stops, "Остановка1");
 
             STOPS_FOR_BUS("34", Buses, Stops);
 
         }
-
 
         public static void NEW_BUS(int count, string busName)
         {
@@ -48,15 +45,7 @@ namespace BusStops
                 Stops[name].Add(busName);
             });
         }
-        //public static void NEW_HASH(List<string> Stop_List, string bus_name)
-        //{
-        //    Stop_List.ForEach(delegate (string name)
-        //    {
-        //        Bus.Add(bus_name);
-        //        Stops.TryAdd(name, Bus);
-        //        Stop.Add(name);
-        //    });
-        //}
+        
         public static void BUSES_FOR_STOP(Dictionary<string, HashSet<string>> Stopp, string _stop)
         {
             foreach (var i in Stopp)
@@ -112,20 +101,20 @@ namespace BusStops
                 }
             }
         }
-        public static void Print_Bus(Dictionary<string, HashSet<string>> Buss, string key)
-        {
-            foreach (var i in Buss)
-            {
-                if (i.Key == key)
-                {
-                    Console.WriteLine($"Номер автобуса: {i.Key}");
-                    Console.WriteLine("Остановки: ");
-                    foreach (var a in i.Value)
-                    {
-                        Console.WriteLine(a);
-                    }
-                }
-            }
-        }
+        //public static void Print_Bus(Dictionary<string, HashSet<string>> Buss, string key)
+        //{
+        //    foreach (var i in Buss)
+        //    {
+        //        if (i.Key == key)
+        //        {
+        //            Console.WriteLine($"Номер автобуса: {i.Key}");
+        //            Console.WriteLine("Остановки: ");
+        //            foreach (var a in i.Value)
+        //            {
+        //                Console.WriteLine(a);
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

@@ -10,8 +10,8 @@ namespace BusStops
     {
         static public Dictionary<string, HashSet<string>> Buses;
         static public Dictionary<string, HashSet<string>> Stops;
-        static public HashSet<string> Stop = new HashSet<string>();
-        static public HashSet<string> Bus = new HashSet<string>();
+        //static public HashSet<string> Stop = new HashSet<string>();
+        //static public HashSet<string> Bus = new HashSet<string>();
         static public List<string> Stop_List;
         static public void Main(string[] args)
         {
@@ -20,13 +20,13 @@ namespace BusStops
 
             Stop_List = new List<string>() { "Остановка1", "Остановка2", "Остановка3", "Остановка4" };
    
-            NEW_BUS(5, "34", Stop);
+            NEW_BUS(5, "34");
             Print_Bus(Buses, "34");
             BUSES_FOR_STOP(Stops, "Остановка1");
 
             Stop_List = new List<string>() {"Остановка2", "Остановка3", "Остановка4", "Остановка5" };
 
-            NEW_BUS(5, "45", Stop);
+            NEW_BUS(5, "45");
             Print_Bus(Buses, "45");
 
             //ALL_BUSES(Buses);
@@ -38,21 +38,25 @@ namespace BusStops
         }
 
 
-        public static void NEW_BUS(int count, string busName, HashSet<string> Stop)
+        public static void NEW_BUS(int count, string busName)
         {
-            Stop.Clear();
-            NEW_HASH(Stop_List, busName);
-            Buses.TryAdd(busName, Stop);
-        }
-        public static void NEW_HASH(List<string> Stop_List, string bus_name)
-        {
+            Buses.TryAdd(busName, new HashSet<string>());
             Stop_List.ForEach(delegate (string name)
             {
-                Bus.Add(bus_name);
-                Stops.TryAdd(name, Bus);
-                Stop.Add(name);
+                Buses[busName].Add(name);
+                Stops.TryAdd(name, new HashSet<string>());
+                Stops[name].Add(busName);
             });
         }
+        //public static void NEW_HASH(List<string> Stop_List, string bus_name)
+        //{
+        //    Stop_List.ForEach(delegate (string name)
+        //    {
+        //        Bus.Add(bus_name);
+        //        Stops.TryAdd(name, Bus);
+        //        Stop.Add(name);
+        //    });
+        //}
         public static void BUSES_FOR_STOP(Dictionary<string, HashSet<string>> Stopp, string _stop)
         {
             foreach (var i in Stopp)

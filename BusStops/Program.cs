@@ -35,6 +35,8 @@ namespace BusStops
 
         }
 
+
+        //88
         public static void NEW_BUS(int count, string busName)
         {
             Buses.TryAdd(busName, new HashSet<string>());
@@ -89,6 +91,8 @@ namespace BusStops
                 }
             }
         }
+
+        //99
         public static void ALL_BUSES(Dictionary<string, HashSet<string>> Buss)
         {
             foreach (var i in Buss)

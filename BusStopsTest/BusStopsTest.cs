@@ -14,7 +14,7 @@ namespace BusStopsTest
         public void TestAddingBus()
         {
             BusStops.Program.Buses = new Dictionary<string, HashSet<string>>();
-            BusStops.Program.Buses.TryAdd("34",);
+            BusStops.Program.Buses.TryAdd("34");
         }
     }
 }

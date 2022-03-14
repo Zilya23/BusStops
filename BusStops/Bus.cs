@@ -16,7 +16,7 @@ namespace BusStops
             Buses = new Bus_Stop();
             Stops = new Bus_Stop();
         }
-        public void NEW_BUS(int count, string busName)
+        public void NEW_BUS(int count, string busName, string[] stop)
         {
             Buses.TryAdd(busName, new HashSet<string>());
             Stop_List.ForEach(delegate (string name)

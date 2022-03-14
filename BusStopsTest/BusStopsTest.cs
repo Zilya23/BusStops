@@ -20,6 +20,9 @@ namespace BusStopsTest
             Assert.AreEqual(bus.BUS_COUNT("Остановка1"), 0);
             Assert.AreEqual(bus.STOP_COUNT("34"), 0);
             Assert.AreEqual(bus.STOP_COUNT("34a"), 0);
+
+            string stoplist = "stop1 stop2 stop3";
+            bus.NEW_BUS("34", 3, stoplist.Split());
         }
     }
 }

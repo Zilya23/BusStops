@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Data;
 using System.Collections.Generic;
+using BusStops;
 
 namespace BusStopsTest
 {
@@ -13,8 +14,12 @@ namespace BusStopsTest
         [TestMethod]
         public void TestAddingBus()
         {
-            BusStops.Program.Buses = new Dictionary<string, HashSet<string>>();
-            BusStops.Program.Buses.TryAdd("34",);
+            Bus bus = new Bus();
+            
+            Assert.AreEqual(bus.BUS_COUNT("Остановка1"), 0);
+            Assert.AreEqual(bus.BUS_COUNT("Остановка1"), 0);
+            Assert.AreEqual(bus.STOP_COUNT("34"), 0);
+            Assert.AreEqual(bus.STOP_COUNT("34a"), 0);
         }
     }
 }

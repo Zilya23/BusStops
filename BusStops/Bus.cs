@@ -16,7 +16,7 @@ namespace BusStops
             Buses = new Bus_Stop();
             Stops = new Bus_Stop();
         }
-        public void NEW_BUS(int count, string busName, string[] stop)
+        public void NEW_BUS(int count, string busName)
         {
             Buses.TryAdd(busName, new HashSet<string>());
             Stop_List.ForEach(delegate (string name)
@@ -27,8 +27,9 @@ namespace BusStops
             });
         }
 
-        public void BUSES_FOR_STOP(Dictionary<string, HashSet<string>> Stopp, string _stop)
+        public int BUSES_FOR_STOP(Dictionary<string, HashSet<string>> Stopp, string _stop)
         {
+            int count = 0;
             foreach (var i in Stopp)
             {
                 if (i.Key == _stop)
@@ -38,10 +39,12 @@ namespace BusStops
                     foreach (var a in i.Value)
                     {
                         Console.Write(a + " ");
+                        count++;
                     }
                     Console.WriteLine();
                 }
             }
+            return count;
         }
         public void STOPS_FOR_BUS(string bus, Dictionary<string, HashSet<string>> Buss, Dictionary<string, HashSet<string>> Stopp)
         {
@@ -70,8 +73,9 @@ namespace BusStops
                 }
             }
         }
-        public void ALL_BUSES(Dictionary<string, HashSet<string>> Buss)
+        public int ALL_BUSES(Dictionary<string, HashSet<string>> Buss)
         {
+            int count = 0;
             foreach (var i in Buss)
             {
                 Console.WriteLine($"Номер автобуса: {i.Key}");
@@ -80,7 +84,9 @@ namespace BusStops
                 {
                     Console.WriteLine(a);
                 }
+                count++;
             }
+            return count;
         }
         public int BUS_COUNT(string stop)
         {
